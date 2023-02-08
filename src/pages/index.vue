@@ -1,12 +1,12 @@
 <script>
-  export default {
-    components: {
-      Logo,
-    },
-  };
+export default {
+	components: {
+		Logo,
+	},
+};
 </script>
 <script setup>
-  import Logo from '../assets/icons/logo.svg';
+import Logo from '../assets/icons/logo.svg';
 </script>
 
 <template>
