@@ -2,7 +2,11 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/supabase', '@pinia/nuxt'],
+  modules: [
+    '@nuxtjs/supabase',
+    '@pinia/nuxt',
+    'vite-plugin-vue-type-imports/nuxt'
+  ],
   srcDir: 'src/',
   css: ['assets/css/main.css'],
   postcss: {

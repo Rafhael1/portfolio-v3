@@ -1,12 +1,8 @@
-<script>
-export default {
-	components: {
-		Logo,
-	},
-};
-</script>
 <script setup>
 import Logo from '../assets/icons/logo.svg';
+import tabs from '../components/tabs/tabs.vue';
+import tabsContent from '../components/tabs/tabs-content.vue';
+
 </script>
 
 <template>
@@ -15,5 +11,13 @@ import Logo from '../assets/icons/logo.svg';
       Hello world!
     </h1>
     <Logo />
+    <tabs>
+			<tabsContent title="Profile" id="profile">
+				Test 1
+			</tabsContent>
+			<tabsContent title="Settings" id="settings">
+				Test 2
+			</tabsContent>
+	</tabs>
   </div>
 </template>

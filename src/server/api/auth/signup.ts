@@ -1,6 +1,6 @@
 import supabaseAuth from '~~/src/config/auth';
 
-export default defineEventHandler(async(event) => {
+export default defineEventHandler(async() => {
 	try {
 		const { data, error } = await supabaseAuth.auth.signUp({
 			email: 'rafhaelmarques@protonmail.com',
