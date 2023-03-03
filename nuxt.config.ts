@@ -5,10 +5,10 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/supabase',
     '@pinia/nuxt',
-    'vite-plugin-vue-type-imports/nuxt'
+    'vite-plugin-vue-type-imports/nuxt',
   ],
   srcDir: 'src/',
-  css: ['assets/css/main.css'],
+  css: ['assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
   postcss: {
     plugins: {
       tailwindcss: {},

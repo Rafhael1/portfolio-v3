@@ -2,6 +2,7 @@
 import Logo from '../assets/icons/logo.svg';
 import tabs from '../components/tabs/tabs.vue';
 import tabsContent from '../components/tabs/tabs-content.vue';
+import buttonVue from '../components/button/button.vue';
 
 </script>
 
@@ -18,6 +19,15 @@ import tabsContent from '../components/tabs/tabs-content.vue';
 			<tabsContent title="Settings" id="settings">
 				Test 2
 			</tabsContent>
-	</tabs>
+		</tabs>
+		<div :style="{
+			width: '200px',
+		}">
+			<buttonVue fullWidth size="md">
+				<Logo #icon />
+				Click me
+			</buttonVue>
+		</div>
+		<font-awesome-icon icon="fa-brands fa-twitter-square" />
   </div>
 </template>
