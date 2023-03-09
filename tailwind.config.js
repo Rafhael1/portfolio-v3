@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
+
 module.exports = {
+	darkMode: 'class',
+	important: true,
   content: [
     "./src/components/**/*.{js,vue,ts}",
     "./src/layouts/**/*.vue",
@@ -10,6 +14,11 @@ module.exports = {
     "./src/app.vue",
   ],
   theme: {
+		colors: {
+			'primary-text-light': '#232E35',
+			'primary-text-dark': '#1B252B',
+			...colors
+		},
 		extend: {
 			borderRadius: {
 				'none': '0',
