@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const colors = require('tailwindcss/colors')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
 	darkMode: 'class',
@@ -14,9 +15,16 @@ module.exports = {
     "./src/app.vue",
   ],
   theme: {
+		screens: {
+			'mobile': { 'max': '650px' },
+			'tablet': { 'min': '768px', 'max': '1023px' },
+			'desktop': { 'min': '1024px' },
+			...defaultTheme.screens,
+		 },
 		colors: {
 			'primary-text-light': '#232E35',
 			'primary-text-dark': '#1B252B',
+			'primary-border-color': '#C2C1C2',
 			...colors
 		},
 		extend: {

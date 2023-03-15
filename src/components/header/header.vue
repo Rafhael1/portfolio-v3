@@ -19,7 +19,7 @@ const toggleMenu = () => {
 
 </script>
 <template>
-	<nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
+	<nav class="bg-transparent px-4 lg:px-6 py-2.5">
 		<div
 			class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
 		>
@@ -96,22 +96,22 @@ const toggleMenu = () => {
 			<div
 				:class="`${isMenuOpen ? '' : 'hidden'}`"
 				class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-				id="mobile-menu-2 `"
+				id="mobile-menu-2"
 			>
 				<ul
 					v-for="link in props.headerLinks"
 					class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
 				>
-					<li>
-						<a
-							:href="link.url"
-							:target="link.target"
-							class="transition-all hover:text-xl hover:text-violet-600 hover:underline underline-offset-0 hover:underline-offset-8 decoration-violet-600 mr-4 rounded"
+					<NuxtLink :to="link.url">
+						<li class="w-full mobile:hover:bg-violet-700 rounded mobile:hover:text-white p-2">
+							<a
+							class="transition-all lg:hover:text-xl desktop:hover:text-violet-600 lg:hover:underline lg:underline-offset-0 hover:underline-offset-8 decoration-violet-600 mr-4 rounded"
 							aria-current="page"
-						>
+							>
 							{{ link.title }}
 						</a>
 					</li>
+					</NuxtLink>
 				</ul>
 			</div>
 		</div>

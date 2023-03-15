@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import footerVue from '../components/footer/footer.vue';
 import headerVue from '../components/header/header.vue';
 
 const headerLinks = [
@@ -21,9 +22,12 @@ const headerLinks = [
 
 </script>
 <template>
-	<div>
+	<span class="flex flex-col min-h-screen justify-between">
 		<headerVue :headerLinks="headerLinks">
 		</headerVue>
-		<slot></slot>
-	</div>
+		<span class="mb-auto ml-10 mr-10">
+			<slot></slot>
+		</span>
+		<footerVue />
+	</span>
 </template>

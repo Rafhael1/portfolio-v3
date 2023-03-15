@@ -1,9 +1,9 @@
 import { library, config } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faTwitterSquare, faTwitch, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTwitterSquare, faTwitch, faGithubSquare, faDownload)
+library.add(faGithub, faLinkedin, faDownload)
 
 // This is important, we are going to let Nuxt worry about the CSS
 config.autoAddCss = false
