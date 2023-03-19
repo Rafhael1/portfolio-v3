@@ -13,16 +13,6 @@ watch(form, (value) => {
 </script>
 <template>
   <div>
-		<selectVue label="Country" placeholder="Select" v-model="form.test" :options="[
-			{
-				label: 'Brazil',
-				value: 'brazil'
-			},
-			{
-				label: 'United States',
-				value: 'united-states'
-			}
-		]" />
-		<textfieldVue placeholder="Name" v-model="form.test" />
+		
   </div>
 </template>

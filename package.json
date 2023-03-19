@@ -27,6 +27,7 @@
     "vitest": "^0.28.3"
   },
   "dependencies": {
+    "@formkit/auto-animate": "1.0.0-beta.6",
     "@fortawesome/fontawesome-free": "^6.3.0",
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-brands-svg-icons": "^6.3.0",

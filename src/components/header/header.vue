@@ -35,7 +35,7 @@ const toggleMenu = () => {
 				>
 			</a>
 			<div class="flex items-center lg:order-2">
-				<button
+				<!-- <button
 					@click="themeStore.switchTheme()"
 					type="button"
 					class="mr-2 "
@@ -51,7 +51,7 @@ const toggleMenu = () => {
 						:key="`${themeRef}-dark`"
 						alt="Theme Switch" />
 
-				</button>
+				</button> -->
 				<button 
 					type="button" 
 					class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
