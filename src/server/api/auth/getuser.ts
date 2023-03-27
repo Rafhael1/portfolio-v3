@@ -1,4 +1,4 @@
-import supabaseAuth from '~~/src/config/auth';
+import supabaseAuth from '~~/src/config/supabase';
 
 export default defineEventHandler(async(event) => {
 	try {

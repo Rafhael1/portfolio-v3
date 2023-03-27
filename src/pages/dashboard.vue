@@ -74,10 +74,18 @@ const addIbjectToSpecialized = () => {
 	form.specialized.push({ title: '', description: '', icon: '' });
 }
 
+const handleSubmit = async() => {
+	await useFetch('/api/dashboard/insert', {
+		method: 'POST',
+		body: JSON.stringify(form)
+	});
+}
+
 </script>
 <template>
 	<div class="mt-6 mb-6">
 		<h1 class="text-3xl font-bold mb-4">Dashboard</h1>
+		<form @submit.prevent="handleSubmit">
 		<tabs>
 			<tabsContent id="tab1" title="Summary">
 				<div>
@@ -96,10 +104,10 @@ const addIbjectToSpecialized = () => {
 							/>
 							<selectVue placeholder="Select Icon" :options="iconsList" v-model="social.icon" />
 						</li>
-						<buttonVue size="md" @click="addObjectToSocial">
-							Add More
-						</buttonVue>
 					</ul>
+					<buttonVue size="md" @click="addObjectToSocial">
+						Add More
+					</buttonVue>
 				</div>
 			</tabsContent>
 			<tabsContent id="tab3" title="Specialized In">
@@ -144,11 +152,19 @@ const addIbjectToSpecialized = () => {
 			</tabsContent>
 			<tabsContent id="tab7" title="Featured Projects">
 				<div v-for="item in form.featuredProjects">
+					<textfieldVue placeholder="Title" v-model="item.title" />
+					<textfieldVue placeholder="Link" v-model="item.link" />
+					<textfieldVue placeholder="Thumbnail" v-model="item.thumbnail" />
+					<div v-for="tech in item.technologies">
+						<textfieldVue placeholder="Tech Name" v-model="tech.name" />
+						<selectVue placeholder="Select Icon" :options="iconsList" v-model="tech.icon" />
+					</div>
 				</div>
 			</tabsContent>
 		</tabs>
-		<buttonVue size="md" class="mt-4 float-right">
+		<buttonVue type="submit" size="md" class="mt-4 float-right">
 			Save Changes
 		</buttonVue>
+		</form>
 	</div>
 </template>

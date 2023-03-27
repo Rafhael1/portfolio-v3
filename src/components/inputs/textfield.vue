@@ -8,7 +8,7 @@ const props = defineProps<InputProps>();
 		:value="modelValue" 
 		@input="($event) => $emit('update:modelValue', ($event.target as HTMLInputElement).value)"
 		:placeholder="props.placeholder"
-		type="text"
+		:type="props.type"
 		:disabled="props.disabled"
 		:readonly="props.disabled"
 		:class="`${props.disabled && 'bg-gray-100 block cursor-not-allowed'} bg-white border border-primary-border-color text-primary-text-light mb-6 text-md 
