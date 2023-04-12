@@ -25,9 +25,9 @@ const headerLinks = [
 	<span class="flex flex-col min-h-screen justify-between">
 		<headerVue :headerLinks="headerLinks">
 		</headerVue>
-		<span class="mb-auto ml-10 mr-10">
+		<main class="mb-auto ml-36 mr-36 mobile:mr-10 mobile:ml-10">
 			<slot></slot>
-		</span>
+		</main>
 		<footerVue />
 	</span>
 </template>

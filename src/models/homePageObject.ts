@@ -1,4 +1,4 @@
-interface HomePage {
+export interface HomePage {
 	section: string;
  	info_type: string;
  	info?: string;

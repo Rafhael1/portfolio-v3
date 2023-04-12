@@ -25,6 +25,7 @@ module.exports = {
 			'primary-text-light': '#232E35',
 			'primary-text-dark': '#1B252B',
 			'primary-border-color': '#C2C1C2',
+			'section-title-color': '#656D72',
 			...colors
 		},
 		extend: {

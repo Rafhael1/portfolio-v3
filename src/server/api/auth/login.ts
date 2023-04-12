@@ -1,13 +1,13 @@
 import supabaseAuth from '~~/src/config/supabase';
 
-export default defineEventHandler(async() => {
+export default defineEventHandler(async(event) => {
 	try {
+		const body = await readBody(event);
 		let { data, error } = await supabaseAuth.auth.signInWithPassword({
-			email: 'rafhaelmarques@protonmail.com',
-			password: 'test123@'
+			email: body.email,
+			password: body.password
 		})
-		
-		if (error) error;
+		if (error) throw error;
   
 		return data;
 	} catch (error) {

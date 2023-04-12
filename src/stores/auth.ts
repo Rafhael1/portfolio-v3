@@ -1,16 +1,39 @@
 import { defineStore } from 'pinia';
 
-// interface IState {
-// 	egirls?: IEgirls[];
-// 	isLoadingSync?: boolean
-// }
+interface IState {
+	isLoading: boolean;
+	auth?: any;
+}
 
-export const useEgirlsStore = defineStore('auth', {	
-	state: ()  => ({}),
+export const useAuthStore = defineStore('auth', {	
+	state: (): IState  => ({
+		isLoading: false,
+		auth: null
+	}),
 	actions: {
-		async getEgirls() {
-			// const response: IEgirls[] = (await axios.get('/nudefier/get-all'));
-			// this.egirls =  response;
+		async login(form: { email: string; password: string }) {
+			const router = useRouter();
+			
+			this.isLoading = true;
+			const login: any = await useFetch('/api/auth/login', {
+				method: 'POST',
+				body: form
+			});
+
+
+			const accessToken: string = login.data.value?.session?.access_token;
+
+			if (accessToken) {
+				localStorage.setItem('accessToken', accessToken);
+				// redirect to home 
+				this.isLoading = false;
+				router.push('/dashboard');
+				return true;				
+			}
+			
+			this.isLoading = false;
+			return false;
+			
 		},
 	}
 });

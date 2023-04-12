@@ -4,5 +4,5 @@
 
 @font-face {
   font-family: 'Inter', sans-serif;
-  src: url("~/public/fonts/inter/Inter-Regular.ttf");
+  src: url("/public/fonts/inter/Inter-Regular.ttf");
 }

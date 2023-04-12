@@ -1,16 +1,16 @@
 export interface DashboardForm {
-	summary: string;
-	socials: {
+	summary?: string;
+	socials?: {
 		name: string;
 		link: string;
 		icon: string;
 	}[];
-	specialized: {
+	specialized?: {
 		title: string;
 		description: string;
 		icon: string;
 	}[];
-	workExperience: {
+	workExperience?: {
 		title: string;
 		company: string;
 		location: string;
@@ -23,18 +23,18 @@ export interface DashboardForm {
 			icon: string;
 		}[];
 	}[];
-	education: {
+	education?: {
 		courseTitle: string;
 		school: string;
 		startDate: string;
 		endDate?: string;
 		present?: boolean;
 	}[];
-	skills: {
+	skills?: {
 		name: string;
 		icon: string;
 	}[];
-	featuredProjects: {
+	featuredProjects?: {
 		title: string;
 		description: string;
 		link: string;

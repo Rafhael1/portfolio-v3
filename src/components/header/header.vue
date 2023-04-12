@@ -95,7 +95,7 @@ const toggleMenu = () => {
 			</div>
 			<div
 				:class="`${isMenuOpen ? '' : 'hidden'}`"
-				class="justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+				class="justify-between px-2 mobile:rounded mobile:bg-gray-50 items-center w-full lg:flex lg:w-auto lg:order-1"
 				id="mobile-menu-2"
 			>
 				<ul
@@ -105,7 +105,7 @@ const toggleMenu = () => {
 					<NuxtLink :to="link.url">
 						<li class="w-full mobile:hover:bg-violet-700 rounded mobile:hover:text-white p-2">
 							<a
-							class="transition-all lg:hover:text-xl desktop:hover:text-violet-600 lg:hover:underline lg:underline-offset-0 hover:underline-offset-8 decoration-violet-600 mr-4 rounded"
+							class="transition-all desktop:hover:text-violet-600 lg:hover:underline lg:underline-offset-0 hover:underline-offset-8 decoration-violet-600 mr-4 rounded"
 							aria-current="page"
 							>
 							{{ link.title }}
