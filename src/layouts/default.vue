@@ -22,10 +22,10 @@ const headerLinks = [
 
 </script>
 <template>
-	<span class="flex flex-col min-h-screen justify-between">
+	<span class="flex flex-col min-h-screen max-w-screen overflow-x-hidden">
 		<headerVue :headerLinks="headerLinks">
 		</headerVue>
-		<main class="mb-auto ml-36 mr-36 mobile:mr-10 mobile:ml-10">
+		<main>
 			<slot></slot>
 		</main>
 		<footerVue />

@@ -6,6 +6,13 @@ export default defineEventHandler(async(event) => {
 	try {
 		const body: DashboardForm = await readBody(event);
 
+		if (!body || !body.education || !body.skills || !body.socials || !body.workExperience) {
+			throw new Error('No body');
+		}
+
+		// Clear all existing data
+		await supabase.from('HOME_PAGE').delete();
+
 		// Save Summary
 		const newSummary = new HomePageObject('summary', 'summary', body.summary)
 		const summary = await supabase.from('HOME_PAGE').insert([newSummary]);
