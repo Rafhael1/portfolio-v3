@@ -67,11 +67,11 @@ const form = reactive<DashboardForm>({
 
 
 const addObjectToSocial = () => {
-	form.socials.push({ name: '', link: '', icon: '' });
+	form.socials?.push({ name: '', link: '', icon: '' });
 }
 
 const addIbjectToSpecialized = () => {
-	form.specialized.push({ title: '', description: '', icon: '' });
+	form.specialized?.push({ title: '', description: '', icon: '' });
 }
 
 const handleSubmit = async() => {

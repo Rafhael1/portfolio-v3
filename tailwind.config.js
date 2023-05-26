@@ -70,10 +70,10 @@ module.exports = {
         },
         blink: {
           "50%": {
-            borderColor: "transparent"
+						borderColor: "transparent"
           },
-          "100%": {
-            borderColor: "rgb(124 58 237)"
+          "100%": {					
+						borderColor: "rgb(124 58 237)"						
           }  
         }			
 			},		

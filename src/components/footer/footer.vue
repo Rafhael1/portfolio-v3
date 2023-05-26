@@ -22,7 +22,7 @@ const state = reactive<FooterState>({
 
 </script>
 <template>
-<footer class="h-20 bg-transparent inline">
+<footer class="m-8 align-middle h-20 bg-transparent inline">
 	<ul class="text-lg flex flex-wrap justify-center text-primary-text-light dark:text-white sm:mt-0">
 		<li v-for="social in state.socials" class="mr-4">
 			<NuxtLink :to="social.link" target="_blank">

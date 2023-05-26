@@ -98,7 +98,7 @@ const toggleMenu = () => {
 				class="justify-between px-2 mobile:rounded mobile:bg-gray-50 items-center w-full lg:flex lg:w-auto lg:order-1"
 				id="mobile-menu-2"
 			>
-				<ul
+				<!-- <ul
 					v-for="link in props.headerLinks"
 					class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
 				>
@@ -112,7 +112,7 @@ const toggleMenu = () => {
 						</a>
 					</li>
 					</NuxtLink>
-				</ul>
+				</ul> -->
 			</div>
 		</div>
 	</nav>
