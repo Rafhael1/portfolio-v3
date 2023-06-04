@@ -19,4 +19,4 @@ export const iconsList = [
 		label: 'Github',
 		value: 'github'
 	}
-]
+];

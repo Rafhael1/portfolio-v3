@@ -6,8 +6,14 @@ export default defineNuxtConfig({
     '@nuxtjs/supabase',
     '@pinia/nuxt',
     'vite-plugin-vue-type-imports/nuxt',
-  ],
+		'compression'
+  ],	
   srcDir: 'src/',
+	app: {
+		head: {
+			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+		},
+	},
   css: ['assets/css/main.css', '@fortawesome/fontawesome-svg-core/styles.css'],
   postcss: {
     plugins: {

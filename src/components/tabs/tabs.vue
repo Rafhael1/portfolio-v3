@@ -12,10 +12,10 @@ const inactiveClass = 'text-gray-600 hover:text-gray-700 bg-gray-100';
 const updateActiveTab = (e: Event) => {
 	const tabId = (e.target as HTMLElement).id;
 	
-  activeTab.value = tabId;
+	activeTab.value = tabId;
 };
 
-provide('activeTab', activeTab)
+provide('activeTab', activeTab);
 
 onMounted(() => {
 	// About the '!' in slots.default!()
@@ -24,7 +24,7 @@ onMounted(() => {
 		return {
 			id: el.props?.id,
 			title: el.props?.title
-		}
+		};
 	});	
 
 	tabs.value = initialTabs;
@@ -36,23 +36,33 @@ onMounted(() => {
 </script>
 <template>
   <div class="mb-4">
-    <ul class="flex flex-wrap -mb-px text-md font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
-        <li v-for="tab in tabs" class="mr-2" role="presentation">
-            <button 
-							@click="(event: Event) => updateActiveTab(event)" 
-							:class="`${activeTab === tab.id ? activeClass : inactiveClass} transition-colors font-semibold antialiased inline-block p-3 rounded`" 
-							:id="`${tab.id}`" :data-tabs-target="`#${tab.id}`" 
-							type="button" 
-							role="tab" 
-							aria-controls="profile" 
-							aria-selected="false"
-						>
-							{{ tab.title }}
-						</button>
-        </li>
+    <ul
+      id="myTab"
+      class="flex flex-wrap -mb-px text-md font-medium text-center"
+      data-tabs-toggle="#myTabContent"
+      role="tablist"
+    >
+      <li
+        v-for="tab in tabs"
+        class="mr-2"
+        role="presentation"
+      >
+        <button 
+          :id="`${tab.id}`" 
+          :class="`${activeTab === tab.id ? activeClass : inactiveClass} transition-colors font-semibold antialiased inline-block p-3 rounded`" 
+          :data-tabs-target="`#${tab.id}`"
+          type="button" 
+          role="tab" 
+          aria-controls="profile" 
+          aria-selected="false" 
+          @click="(event: Event) => updateActiveTab(event)"
+        >
+          {{ tab.title }}
+        </button>
+      </li>
     </ul>
-</div>
-<div id="myTabContent">
-	<slot></slot>
-</div>
+  </div>
+  <div id="myTabContent">
+    <slot />
+  </div>
 </template>

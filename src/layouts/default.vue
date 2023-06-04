@@ -22,12 +22,11 @@ const headerLinks = [
 
 </script>
 <template>
-	<span class="flex flex-col min-h-screen max-w-screen overflow-x-hidden">
-		<headerVue :headerLinks="headerLinks">
-		</headerVue>
-		<main>
-			<slot></slot>
-		</main>
-		<footerVue />
-	</span>
+  <span class="flex flex-col min-h-screen max-w-screen overflow-x-hidden">
+    <headerVue :header-links="headerLinks" />
+    <main>
+      <slot />
+    </main>
+    <footerVue />
+  </span>
 </template>

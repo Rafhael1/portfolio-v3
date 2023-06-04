@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { HeaderProps } from "./header.types";
 import { useThemeStore } from "../../stores/theme";
+import Logo from "../../assets/logo.svg?url";
+// import svgVue from "../svgVue/svgVue.vue";
 
-const props = defineProps<HeaderProps>();
+console.log(Logo);
 const themeStore = useThemeStore();
 
 const themeRef = ref<string>();
@@ -19,11 +20,11 @@ const toggleMenu = () => {
 
 </script>
 <template>
-	<nav class="bg-transparent px-4 lg:px-6 py-2.5">
-		<div
-		class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
-		>
-		<button
+  <nav class="bg-transparent px-4 lg:px-6 py-2.5">
+    <div
+      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+    >
+      <!-- <button
 			@click="() => toggleMenu()"
 			data-collapse-toggle="mobile-menu-2"
 			type="button"
@@ -56,20 +57,19 @@ const toggleMenu = () => {
 					clip-rule="evenodd"
 				></path>
 			</svg>
-		</button>
-			<a href="/" class="flex items-center">
-				<img
-					src="../../assets/icons/logo.svg"
-					class="mr-3 h-6 sm:h-9"
-					alt="Rafhael Logo"
-				/>
-				<span
-					class="self-center text-xl font-semibold whitespace-nowrap text-primary-text-light dark:text-white"
-					>Rafhael</span
-				>
-			</a>
-			<div class="flex items-center lg:order-2">
-				<!-- <button
+		</button> -->
+      <div class="flex items-center">				
+        <img
+          :src="Logo"
+          class="mr-3 w-10"
+          loading="eagle"
+        >
+        <span
+          class="self-center text-xl font-semibold whitespace-nowrap text-primary-text-light dark:text-white"
+        >&lt;Rafhael /></span>
+      </div>
+      <div class="flex items-center lg:order-2">
+        <!-- <button
 					@click="themeStore.switchTheme()"
 					type="button"
 					class="mr-2 "
@@ -86,19 +86,23 @@ const toggleMenu = () => {
 						alt="Theme Switch" />
 
 				</button> -->
-				<button 
-					type="button" 
-					class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-					Resume
-					<font-awesome-icon class="ml-1" icon="fa-solid fa-download" />
-				</button>
-			</div>
-			<div
-				:class="`${isMenuOpen ? 'hidden' : 'hidden'}`"
-				class="justify-between px-2 mobile:rounded mobile:bg-gray-50 items-center w-full lg:flex lg:w-auto lg:order-1"
-				id="mobile-menu-2"
-			>
-				<!-- <ul
+        <button 
+          type="button" 
+          class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+        >
+          Resume
+          <font-awesome-icon
+            class="ml-1"
+            icon="fa-solid fa-download"
+          />
+        </button>
+      </div>
+      <div
+        id="mobile-menu-2"
+        :class="`${isMenuOpen ? 'hidden' : 'hidden'}`"
+        class="justify-between px-2 mobile:rounded mobile:bg-gray-50 items-center w-full lg:flex lg:w-auto lg:order-1"
+      >
+        <!-- <ul
 					v-for="link in props.headerLinks"
 					class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
 				>
@@ -113,7 +117,7 @@ const toggleMenu = () => {
 					</li>
 					</NuxtLink>
 				</ul> -->
-			</div>
-		</div>
-	</nav>
+      </div>
+    </div>
+  </nav>
 </template>

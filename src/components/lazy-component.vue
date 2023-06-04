@@ -7,7 +7,7 @@ onMounted(() => {
 	const options = {
 		rootMargin: '0px',
 		threshold: 0.5,
-	}
+	};
 
 	const observer = new IntersectionObserver((entries) => {
 		entries.forEach(entry => {
@@ -19,15 +19,18 @@ onMounted(() => {
 				isVisible.value = true;
 				observer.unobserve(entry.target);
 			}
-		})
-	}, options)
+		});
+	}, options);
 
-	observer.observe(animatedDiv.value)	
-})
+	observer.observe(animatedDiv.value);	
+});
 
 </script>
 <template>
-  <div ref="animatedDiv" class="opacity-0">
+  <div
+    ref="animatedDiv"
+    class="opacity-0"
+  >
     <slot />
   </div>
 </template>

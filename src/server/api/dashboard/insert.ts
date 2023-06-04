@@ -14,7 +14,7 @@ export default defineEventHandler(async(event) => {
 		await supabase.from('HOME_PAGE').delete();
 
 		// Save Summary
-		const newSummary = new HomePageObject('summary', 'summary', body.summary)
+		const newSummary = new HomePageObject('summary', 'summary', body.summary);
 		const summary = await supabase.from('HOME_PAGE').insert([newSummary]);
 
 		// Format and Save Socials
