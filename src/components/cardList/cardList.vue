@@ -61,7 +61,7 @@ const handleMouseUp = () => {
     >
       <font-awesome-icon
         class="text-purple-600"
-        icon="fa-solid fa-chevron-left"
+        :icon="['fas', 'fa-chevron-left']"
       />
     </button>
     <div
@@ -83,39 +83,40 @@ const handleMouseUp = () => {
           <div class="flex flex-col items-center justify-center">
             <img
               draggable="false"
+							width="300"
+							height="180"
               class="h-[180px] w-full rounded-t object-cover p-0 grayscale-0"
-              loading="eagle"
               src="https://img.freepik.com/premium-vector/autumn-mountains-landscape-with-tree-silhouettes-river-sunset_148087-293.jpg?w=2000"
               alt="development-svg"
             >
-            <div class="h-[120px] w-full rounded-b border p-[24px]">
-              <div class="mb-2 flex gap-2 align-middle">
+            <div class="h-[120px] w-full rounded-b border p-[8px]">
+              <div class="mb-2 inline align-middle">
                 <h3
                   class="justify-start text-lg font-medium text-primary-text-light"
                 >
-                  To-do App
+									{{ item?.info }}
                 </h3>
-                <span class="flex gap-2">
+                <span class="flex gap-2 mb-2">
                   <a
-                    class="mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
-                    href="http://github.com/Rafhael1"
+                    class="mb-auto mt-1 flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
+                    :href="item?.url"
                     target="_blank"
                   >
                     Site
                     <font-awesome-icon
                       class="mt-auto mb-auto"
-                      icon="fa-solid fa-link"
+                      :icon="['fas', 'link']"
                     />
                   </a>
                   <a
                     class="mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
-                    href="http://github.com/Rafhael1"
+                    :href="item?.info3"
                     target="_blank"
                   >
                     Code
                     <font-awesome-icon
                       class="mt-auto mb-auto"
-                      icon="fa-solid fa-code"
+                      :icon="['fas', 'code']"
                     />
                   </a>
                 </span>
@@ -124,7 +125,7 @@ const handleMouseUp = () => {
                 <div
                   class="w-fit rounded border pl-2 pr-2 pt-1 pb-1 text-primary-text-light"
                 >
-                  {{ item }}
+                  {{ item.info2 }}
                 </div>
               </div>
             </div>
@@ -138,7 +139,7 @@ const handleMouseUp = () => {
     >
       <font-awesome-icon
         class="text-purple-600"
-        icon="fa-solid fa-chevron-right"
+        :icon="['fas', 'chevron-right']"
       />
     </button>
   </span>

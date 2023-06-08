@@ -1,21 +1,31 @@
 <script setup lang="ts">
-import { useThemeStore } from "../../stores/theme";
-import Logo from "../../assets/logo.svg?url";
-// import svgVue from "../svgVue/svgVue.vue";
+import { saveAs } from 'file-saver';
+// import { useThemeStore } from "../../stores/theme";
+// import Logo from "~/public/img/logo.svg?url";
 
-console.log(Logo);
-const themeStore = useThemeStore();
+// const themeStore = useThemeStore();
 
-const themeRef = ref<string>();
+// const themeRef = ref<string>();
 
-onMounted(() => {
-	themeRef.value = themeStore.getTheme();
-});
+// onMounted(() => {
+// 	themeRef.value = themeStore.getTheme();
+// });
 
-const isMenuOpen = ref<boolean>(false);
+// const isMenuOpen = ref<boolean>(false);
 
-const toggleMenu = () => {
-	isMenuOpen.value = !isMenuOpen.value;
+// const toggleMenu = () => {
+// 	isMenuOpen.value = !isMenuOpen.value;
+// };
+
+const downloadResume = async() => {
+	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/frontend_rafhael_marques_cv.pdf?t=2023-06-08T22%3A49%3A01.448Z")
+
+	const blob: any = resume?.data.value
+	const url = window.URL.createObjectURL(blob);
+
+	console.log('saving file...')
+	saveAs(url, "frontend_rafhael_marques_cv.pdf");
+
 };
 
 </script>
@@ -60,12 +70,15 @@ const toggleMenu = () => {
 		</button> -->
       <div class="flex items-center">				
         <img
-          :src="Logo"
-          class="mr-3 w-10"
-          loading="eagle"
-        >
+          width="35"
+          height="35"
+					src="/img/logo.svg"
+          class="mr-3"
+					loading="eagle"
+					alt="Logo"
+        />
         <span
-          class="self-center text-xl font-semibold whitespace-nowrap text-primary-text-light dark:text-white"
+          class="self-center text-xl font-semibold whitespace-nowrap text-primary-text-light"
         >&lt;Rafhael /></span>
       </div>
       <div class="flex items-center lg:order-2">
@@ -86,23 +99,24 @@ const toggleMenu = () => {
 						alt="Theme Switch" />
 
 				</button> -->
-        <button 
-          type="button" 
-          class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-        >
-          Resume
-          <font-awesome-icon
-            class="ml-1"
-            icon="fa-solid fa-download"
-          />
-        </button>
+				<button 
+				type="button" 
+				class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+				@click="downloadResume"
+				>
+					Resume
+					<font-awesome-icon
+					class="ml-1"
+					:icon="['fas', 'fa-download']"
+					/>
+				</button>
       </div>
-      <div
+      <!-- <div
         id="mobile-menu-2"
         :class="`${isMenuOpen ? 'hidden' : 'hidden'}`"
         class="justify-between px-2 mobile:rounded mobile:bg-gray-50 items-center w-full lg:flex lg:w-auto lg:order-1"
       >
-        <!-- <ul
+        <ul
 					v-for="link in props.headerLinks"
 					class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0"
 				>
@@ -116,8 +130,8 @@ const toggleMenu = () => {
 						</a>
 					</li>
 					</NuxtLink>
-				</ul> -->
-      </div>
+				</ul>
+      </div> -->
     </div>
   </nav>
 </template>

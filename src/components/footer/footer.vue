@@ -13,7 +13,7 @@ const state = reactive<FooterState>({
 			title: ""
 		},
 		{
-			link: "",
+			link: "https://www.linkedin.com/in/rafhael-marques/",
 			icon: "linkedin",
 			title: ""
 		}
@@ -36,7 +36,7 @@ const state = reactive<FooterState>({
             :aria-label="social.link"
             :alt="social.title"
             size="lg"
-            :icon="`fa-brands fa-${social.icon}`"
+            :icon="['fab', `${social.icon}`]"
           />
         </NuxtLink>
       </li>

@@ -70,7 +70,7 @@ const addObjectToSocial = () => {
 	form.socials?.push({ name: '', link: '', icon: '' });
 };
 
-const addIbjectToSpecialized = () => {
+const addObjectToSpecialized = () => {
 	form.specialized?.push({ title: '', description: '', icon: '' });
 };
 
@@ -164,7 +164,7 @@ const handleSubmit = async() => {
           </div>
           <buttonVue
             size="md"
-            @click="addIbjectToSpecialized"
+            @click="addObjectToSpecialized"
           >
             Add More
           </buttonVue>
