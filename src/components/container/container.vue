@@ -5,7 +5,7 @@ const props = defineProps<{
 
 </script>
 <template>
-  <section :class="`${darkContainer ? 'bg-section-secondary-background' : ''} pb-auto pl-64 pr-64 mobile:pr-10 mobile:pl-10`">
+  <section :class="`${darkContainer ? 'bg-section-secondary-background' : ''} pb-auto pl-[20%] pr-[20%] mobile:pr-10 mobile:pl-10`">
     <slot />
   </section>
 </template>

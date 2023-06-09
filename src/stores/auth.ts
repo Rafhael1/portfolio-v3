@@ -35,5 +35,24 @@ export const useAuthStore = defineStore('auth', {
 			return false;
 			
 		},
+		async isAuth() {
+				const accessToken = localStorage.getItem('accessToken');
+				if (accessToken) {
+					const isAuth: any = await useFetch('/api/auth/is-auth', {
+						method: 'POST',
+						body: {
+							accessToken
+						}
+					});
+					if(isAuth.data.value !== null){
+						if (isAuth.data.value) {
+							return navigateTo('/dashboard');
+						}
+						return navigateTo('/login');
+					}
+				} else {
+					return navigateTo('/login');
+				}
+		}
 	}
 });

@@ -73,7 +73,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 		class="relative mb-6 flex w-full justify-between mobile:m-auto mobile:flex-none"
 	>
 		<span
-			class="relative left-20 mt-28 mobile:left-0 mobile:mt-8 desktop:min-w-[616px]"
+			class="relative left-10 mt-28 mobile:left-0 mobile:mt-8 desktop:min-w-[616px]"
 		>
 			<div class="w-[23rem] mobile:w-[22rem]">
 				<h3
@@ -230,7 +230,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</span>
 		</LazyComponent>
 	</container>
-	<container class="p-16">
+	<container class="mobile:p-2 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -249,11 +249,14 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</h1>
 			</div>
 			<div>
-				<div class="mt-8 grid grid-cols-4">
+				<div class="mt-8 grid grid-cols-4 gap-8 ">
 					<div v-for="item in homeData.value?.skills" class="m-auto">
 						<img
-							class="w-24"
+							class="desktop:hover:scale-[1.1] grayscale-[60%] hover:grayscale-0 transition-all"
+							width="100"
+							height="100"
 							loading="lazy"
+							draggable="false"
 							:src="item?.image"
 							:alt="item?.info"
 						/>
@@ -262,7 +265,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</div>
 		</LazyComponent>
 	</container>
-	<container class="p-16">
+	<container class="mobile:p-8 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -289,7 +292,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</div>
 		</LazyComponent>
 	</container>
-	<container class="p-16">
+	<container class="mobile:p-6 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -327,7 +330,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</ol>
 		</LazyComponent>
 	</container>
-	<container class="p-16">
+	<container class="mobile:p-2 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h1
@@ -387,7 +390,9 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								required
 							/>
 						</div>
-						<div>
+						<div>		
+							<Checkbox v-model="response" />			
+							<!-- <VueRecaptcha version="2" :sitekey="process.env.RECAPTCHA_V2_SITEKEY"></VueRecaptcha>	 -->
 							<buttonVue class="w-3/4 mobile:w-full">
 								{{ isSubmiting ? 'Sending...' : 'Send' }}
 								<font-awesome-icon  size="md" :icon="['fas', 'fa-paper-plane']" :shake="isSubmiting" />

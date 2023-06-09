@@ -7,6 +7,10 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     'vite-plugin-vue-type-imports/nuxt',
 	],
+	runtimeConfig: {
+    SUPABASE_URL: process.env.SUPABASE_URL,
+    SUPABASE_KEY: process.env.SUPABASE_KEY
+  },
 	srcDir: 'src/',
 	app: {
 		head: {
@@ -38,10 +42,6 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
-  },
-  runtimeConfig: {
-    SUPABASE_URL: process.env.SUPABASE_URL,
-    SUPABASE_KEY: process.env.SUPABASE_KEY,
   },
 	nitro: {
     compressPublicAssets: true,

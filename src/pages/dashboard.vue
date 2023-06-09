@@ -4,17 +4,17 @@ import { tabs, tabsContent, textareaVue, textfieldVue, selectVue, buttonVue, che
 import { useAutoAnimate } from '@formkit/auto-animate/vue';
 import { DashboardForm } from '../types/dashboard';
 import { iconsList } from '../utils/iconsList';
+import { useAuthStore } from '../stores/auth';
 
+const authStore = useAuthStore();
 const [parent] = useAutoAnimate();
 
 definePageMeta({
 	middleware: ["auth"]
 });
 
-onMounted(() => {
-	console.log("mounted");
-	// Autofill form
-	form.summary = "Hello world";
+onBeforeMount(async() => {
+	await authStore.isAuth();
 });
 
 const form = reactive<DashboardForm>({

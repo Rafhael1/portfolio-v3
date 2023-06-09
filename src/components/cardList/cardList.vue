@@ -85,8 +85,8 @@ const handleMouseUp = () => {
               draggable="false"
 							width="300"
 							height="180"
-              class="h-[180px] w-full rounded-t object-cover p-0 grayscale-0"
-              src="https://img.freepik.com/premium-vector/autumn-mountains-landscape-with-tree-silhouettes-river-sunset_148087-293.jpg?w=2000"
+              class="h-[180px] w-full rounded-t object-cover p-0  grayscale-[70%] hover:grayscale-0 transition-all"
+              :src="item.image"
               alt="development-svg"
             >
             <div class="h-[120px] w-full rounded-b border p-[8px]">
@@ -98,7 +98,7 @@ const handleMouseUp = () => {
                 </h3>
                 <span class="flex gap-2 mb-2">
                   <a
-                    class="mb-auto mt-1 flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
+                    class="hover:shadow-md mb-auto mt-1 flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
                     :href="item?.url"
                     target="_blank"
                   >
@@ -109,7 +109,7 @@ const handleMouseUp = () => {
                     />
                   </a>
                   <a
-                    class="mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
+                    class="hover:shadow-md mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
                     :href="item?.info3"
                     target="_blank"
                   >

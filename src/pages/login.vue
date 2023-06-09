@@ -22,7 +22,7 @@ const handleSubmit = async() => {
           Login
         </h1>
       </div>
-      <form>
+      <form @submit.prevent="handleSubmit">
         <textfieldVue
           v-model="form.email"
           placeholder="Email"
@@ -35,7 +35,7 @@ const handleSubmit = async() => {
         />
         <buttonVue
           class="w-full"
-          @click.prevent="handleSubmit"
+          type="submit"
         >
           Login
         </buttonVue>
