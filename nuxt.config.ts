@@ -25,6 +25,14 @@ export default defineNuxtConfig({
 				//{ name: 'format-detection', content: 'telephone=no' },
 				{ hid: 'og:locale', property: 'og:locale', content: 'en_US' },
 				// { hid: 'og:locale:alternate', property: 'og:locale:alternate', content: 'pt_BR' },				
+				// index
+				{ hid: 'og:type', property: 'og:type', content: 'website' },
+				{ hid: 'og:title', property: 'og:title', content: 'Rafhael Marques' },
+				{ hid: 'og:description', property: 'og:description', content: 'Rafhael Marques portfolio website.' },
+				{ hid: 'og:url', property: 'og:url', content: 'https://rafhaelmarques.me' },
+				{ hid: 'og:site_name', property: 'og:site_name', content: 'Rafhael Marques' },
+				// robot meta tag
+				{ hid: 'robots', name: 'robots', content: 'index, follow' },				
 			],
 			link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
 		},

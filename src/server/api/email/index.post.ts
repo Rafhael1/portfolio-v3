@@ -28,11 +28,13 @@ export default defineEventHandler(async(event) => {
 		to: process.env.RECIPIENT_EMAIL,
 		subject: `${body.email} - ${body.subject}`,
 		text: body.message,
-	}, (err: any) => {
+	}, (err: any, info: any) => {
 		if (err) {
+			console.log(err);
 			throw new Error('Message NOT sent');
 		} else {
-			return 'Message sent'
+			console.log(info);
+			return 'Message sent successfully'
 		}
 	});
 
