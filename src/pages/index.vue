@@ -12,7 +12,7 @@ interface HomeData {
 	[key: string]: {
 		[key: string]: HomePage;
 	};
-}
+};
 
 const homeData: Ref<any> = ref({});
 const workExperienceDisplayed: Ref<any> = ref(0);

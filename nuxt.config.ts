@@ -9,10 +9,10 @@ export default defineNuxtConfig({
 	],
 	runtimeConfig: {
     SUPABASE_URL: process.env.SUPABASE_URL,
-    SUPABASE_KEY: process.env.SUPABASE_KEY
-  },
+    SUPABASE_KEY: process.env.SUPABASE_KEY		
+	},
 	srcDir: 'src/',
-	app: {
+	app: {		
 		head: {
 			title: 'Rafhael Marques',
 			htmlAttrs: {
@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 				// index
 				{ hid: 'og:type', property: 'og:type', content: 'website' },
 				{ hid: 'og:title', property: 'og:title', content: 'Rafhael Marques' },
-				{ hid: 'og:description', property: 'og:description', content: 'Rafhael Marques portfolio website.' },
+				{ hid: 'og:description', property: 'og:description', content: 'Rafhael Marques portfolio website. Typescript, Javascript, Node.js, Nest.js, React, Angular, Vue, Nuxt' },
 				{ hid: 'og:url', property: 'og:url', content: 'https://rafhaelmarques.me' },
 				{ hid: 'og:site_name', property: 'og:site_name', content: 'Rafhael Marques' },
 				// robot meta tag
@@ -53,6 +53,9 @@ export default defineNuxtConfig({
   },
 	nitro: {
     compressPublicAssets: true,
+		prerender: {
+			routes: ['/', '/home'],
+		}
   },
   vite: {
     plugins: [
