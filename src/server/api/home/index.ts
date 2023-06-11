@@ -13,7 +13,7 @@ export default defineEventHandler(async() => {
 			specialized: data?.filter((item) => item.info_type === 'specialized') || [],
 			workExperience: data?.filter((item) => item.info_type === 'work') || [],
 			education: data?.filter((item) => item.info_type === 'education') || [],
-			skills: data?.filter((item) => item.info_type === 'skill') || [],
+			skills: data?.filter((item) => item.info_type === 'skill')?.sort((a, b) => a.position - b.position) || [],
 			featuredProjects: data?.filter((item) => item.info_type === 'featured') || [],
 		};
 		

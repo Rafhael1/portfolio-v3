@@ -59,11 +59,10 @@ module.exports = {
 						transform: 'translateX(0)'
 					}
 				},
-				'typing-handle': {
-          "0%": {
+				"typing": {
+          "0%": {					
             width: "0%",
-            visibility: "hidden"
-          },
+          },						
           "100%": {						
 						width: "100%",
           }  
@@ -84,6 +83,7 @@ module.exports = {
 		animation: {
 			'fade-in-right': 'fade-in-right 0.2s ease-out',
 			'fade-in-section': 'fade-in-section 0.4s ease-in',
-			typing: "typing-handle 2s steps(25) alternate, blink .8s infinite"		},
+			typing: "typing 1s steps(25), blink .8s infinite",
+		},
   },
 }
