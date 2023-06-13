@@ -2,6 +2,10 @@
 import svgLoader from 'vite-svg-loader'
 
 export default defineNuxtConfig({
+	routeRules: {
+		'/': { prerender: true },
+		'/api/**': { cors: true },
+	},
   modules: [
     '@nuxtjs/supabase',
     '@pinia/nuxt',
