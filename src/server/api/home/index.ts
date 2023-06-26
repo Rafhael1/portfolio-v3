@@ -2,7 +2,7 @@ import supabase from "~~/src/config/supabase";
 // import { DashboardForm } from "~~/src/types/dashboard";
 // import { HomePage } from "~~/src/models/homePageObject";
 
-export default defineEventHandler(async() => {
+export default defineCachedEventHandler(async() => {
 	try {	
 		const { data, error } = await supabase.from('HOME_PAGE').select('*');
 		if (error) throw error;
@@ -21,4 +21,6 @@ export default defineEventHandler(async() => {
 	} catch (error) {
 		throw error;
 	}
+}, {
+	maxAge: 60 * 60 * 24, // 24 hour
 });
