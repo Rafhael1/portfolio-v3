@@ -1,9 +1,0 @@
-export { default as buttonVue } from './button/button.vue';
-export { default as textfieldVue } from './inputs/textfield.vue';
-export { default as selectVue } from './inputs/select.vue';
-export { default as textareaVue } from './inputs/textarea.vue';
-export { default as checkboxVue } from './inputs/checkbox.vue';
-export { default as datepickerVue } from './inputs/datepicker.vue';
-export { default as card } from './card/card.vue';
-export { default as tabs } from './tabs/tabs.vue';
-export { default as tabsContent } from './tabs/tabs-content.vue';

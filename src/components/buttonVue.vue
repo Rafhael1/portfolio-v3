@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ButtonProps } from './button.types';
+import { ButtonProps } from '../types/button.types';
 const props = defineProps<ButtonProps>();
 
 const getSize = () => {

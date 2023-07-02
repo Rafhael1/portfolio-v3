@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import footerVue from '../components/footer/footer.vue';
-import headerVue from '../components/header/header.vue';
+// import footerVue from '../components/footer/footer.vue';
+// import headerVue from '../components/header/header.vue';
 
 const headerLinks = [
 	{

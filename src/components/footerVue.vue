@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FooterState } from "./footer.types";
+import { FooterState } from "../types/footer.types";
 
 const getYear = () => {
 	return new Date().getFullYear();
@@ -10,12 +10,12 @@ const state = reactive<FooterState>({
 		{
 			link: "https://github.com/Rafhael1",
 			icon: "github",
-			title: ""
+			title: "linkedin"
 		},
 		{
 			link: "https://www.linkedin.com/in/rafhael-marques/",
 			icon: "linkedin",
-			title: ""
+			title: "linkedin"
 		}
 	]
 });

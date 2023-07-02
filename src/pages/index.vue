@@ -1,18 +1,6 @@
 <script setup lang="ts">
 import { ref, Ref } from "vue";
-import { HomePage } from "../models/homePageObject";
-import LazyComponent from "../components/lazy-component.vue";
-import container from "../components/container/container.vue";
-import cardList from "../components/cardList/cardList.vue";
-import { buttonVue } from "../components";
-// import Programmer from "../public/img/programmer.svg?url";
-// import Mail from "../public/img/mail.svg?url";
-
-interface HomeData {
-	[key: string]: {
-		[key: string]: HomePage;
-	};
-};
+import LazyComponent from "~/components/LazyComponent.vue";
 
 const homeData: Ref<any> = ref({});
 const workExperienceDisplayed: Ref<any> = ref(0);
@@ -68,7 +56,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 
 </script>
 <template>
-	<container
+	<containerVue
 		id="summary"
 		class="relative mb-6 flex w-full justify-between mobile:m-auto mobile:flex-none"
 	>
@@ -125,8 +113,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				alt="programmer"
 			/>
 		</div>
-	</container>
-	<!-- <container class="p-16">
+	</containerVue>
+	<!-- <containerVue class="p-16">
 		<LazyComponent>
 			<div class="w-full ml-[35%] mobile:ml-10">
 				<h3 id="summary-title" class="text-sm mobile:text-xs text-section-title-color" style="letter-spacing: 7.5px; font-weight: 500;">
@@ -182,8 +170,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</container> -->
-	<container class="p-16">
+	</containerVue> -->
+	<containerVue class="p-16">
 		<LazyComponent>
 			<div class="w-42">
 				<h3
@@ -229,8 +217,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</span>
 		</LazyComponent>
-	</container>
-	<container class="mobile:p-2 p-16">
+	</containerVue>
+	<containerVue class="mobile:p-2 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -264,8 +252,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</container>
-	<container class="mobile:p-8 p-16">
+	</containerVue>
+	<containerVue class="mobile:p-8 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -291,8 +279,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</container>
-	<container class="mobile:p-6 p-16">
+	</containerVue>
+	<containerVue class="mobile:p-6 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -329,8 +317,8 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</li>
 			</ol>
 		</LazyComponent>
-	</container>
-	<container class="mobile:p-2 p-16">
+	</containerVue>
+	<containerVue class="mobile:p-2 p-16">
 		<LazyComponent>
 			<div class="w-22">
 				<h1
@@ -391,7 +379,6 @@ const formatWorkExperienceAsHtml = (text: string) => {
 							/>
 						</div>
 						<div>		
-							<Checkbox v-model="response" />			
 							<!-- <VueRecaptcha version="2" :sitekey="process.env.RECAPTCHA_V2_SITEKEY"></VueRecaptcha>	 -->
 							<buttonVue class="w-3/4 mobile:w-full">
 								{{ isSubmiting ? 'Sending...' : 'Send' }}
@@ -410,7 +397,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</container>
+	</containerVue>
 </template>
 <style scoped>
 .scrollbar-hide::-webkit-scrollbar {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InputProps } from "./inputs.types";
+import { InputProps } from "../types/inputs.types";
 
 const props = defineProps<InputProps>();
 </script>

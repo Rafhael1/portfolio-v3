@@ -1,90 +1,90 @@
 <script setup lang="ts">
-import { tabs, tabsContent, textareaVue, textfieldVue, selectVue, buttonVue, checkboxVue } from '../components';
+// import { tabs, tabsContent, textareaVue, textfieldVue, selectVue, buttonVue, checkboxVue } from '../components';
 
-import { useAutoAnimate } from '@formkit/auto-animate/vue';
-import { DashboardForm } from '../types/dashboard';
-import { iconsList } from '../utils/iconsList';
-import { useAuthStore } from '../stores/auth';
+// import { useAutoAnimate } from '@formkit/auto-animate/vue';
+// import { DashboardForm } from '.../types/dashboard';
+// import { iconsList } from '../utils/iconsList';
+// import { useAuthStore } from '../stores/auth';
 
-const authStore = useAuthStore();
-const [parent] = useAutoAnimate();
+// const authStore = useAuthStore();
+// const [parent] = useAutoAnimate();
 
-definePageMeta({
-	middleware: ["auth"]
-});
+// definePageMeta({
+// 	middleware: ["auth"]
+// });
 
-onBeforeMount(async() => {
-	await authStore.isAuth();
-});
+// onBeforeMount(async() => {
+// 	await authStore.isAuth();
+// });
 
-const form = reactive<DashboardForm>({
-	summary: '',
-	socials: [{
-		name: '',
-		link: '',
-		icon: ''
-	}],
-	specialized: [{
-		title: '',
-		description: '',
-		icon: ''
-	}],
-	workExperience: [{
-		title: '',
-		description: '',
-		company: '',
-		location: '',
-		startDate: '',
-		endDate: '',
-		present: false,
-		technologies: [{
-			name: '',
-			icon: ''
-		}]
-	}],
-	education: [{
-		courseTitle: '',
-		school: '',
-		startDate: '',
-		endDate: '',
-		present: false,
-	}],
-	skills: [{
-		name: '',
-		icon: ''
-	}],
-	featuredProjects: [{
-		title: '',
-		description: '',
-		link: '',
-		thumbnail: '',
-		technologies: [{
-			name: '',
-			icon: ''
-		}]
-	}],
-});
+// const form = reactive<DashboardForm>({
+// 	summary: '',
+// 	socials: [{
+// 		name: '',
+// 		link: '',
+// 		icon: ''
+// 	}],
+// 	specialized: [{
+// 		title: '',
+// 		description: '',
+// 		icon: ''
+// 	}],
+// 	workExperience: [{
+// 		title: '',
+// 		description: '',
+// 		company: '',
+// 		location: '',
+// 		startDate: '',
+// 		endDate: '',
+// 		present: false,
+// 		technologies: [{
+// 			name: '',
+// 			icon: ''
+// 		}]
+// 	}],
+// 	education: [{
+// 		courseTitle: '',
+// 		school: '',
+// 		startDate: '',
+// 		endDate: '',
+// 		present: false,
+// 	}],
+// 	skills: [{
+// 		name: '',
+// 		icon: ''
+// 	}],
+// 	featuredProjects: [{
+// 		title: '',
+// 		description: '',
+// 		link: '',
+// 		thumbnail: '',
+// 		technologies: [{
+// 			name: '',
+// 			icon: ''
+// 		}]
+// 	}],
+// });
 
 
-const addObjectToSocial = () => {
-	form.socials?.push({ name: '', link: '', icon: '' });
-};
+// const addObjectToSocial = () => {
+// 	form.socials?.push({ name: '', link: '', icon: '' });
+// };
 
-const addObjectToSpecialized = () => {
-	form.specialized?.push({ title: '', description: '', icon: '' });
-};
+// const addObjectToSpecialized = () => {
+// 	form.specialized?.push({ title: '', description: '', icon: '' });
+// };
 
-const handleSubmit = async() => {
-	await useFetch('/api/dashboard/insert', {
-		method: 'POST',
-		body: JSON.stringify(form)
-	});
-};
+// const handleSubmit = async() => {
+// 	await useFetch('/api/dashboard/insert', {
+// 		method: 'POST',
+// 		body: JSON.stringify(form)
+// 	});
+// };
 
 </script>
 <template>
   <div class="mt-6 mb-6">
-    <h1 class="text-3xl font-bold mb-4">
+    <!-- <h1 class="text-3xl font-bold mb-4">
       Dashboard
     </h1>
     <form @submit.prevent="handleSubmit">
@@ -291,6 +291,6 @@ const handleSubmit = async() => {
       >
         Save Changes
       </buttonVue>
-    </form>
+    </form> -->
   </div>
 </template>
