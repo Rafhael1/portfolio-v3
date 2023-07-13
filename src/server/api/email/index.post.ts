@@ -16,7 +16,8 @@ export default defineEventHandler(async(event) => {
 	const userPassword = process.env.GMAIL_NODEMAILER_PASS;
 
 	const transporter = nodeMailer.createTransport({
-		service: 'gmail',
+		service: 'smtp.mailgun.org',
+		port: 587,
 		auth: {
 			user: userEmail,
 			pass: userPassword
