@@ -6,8 +6,7 @@ const homeData: Ref<any> = ref({});
 const workExperienceDisplayed: Ref<any> = ref(0);
 const isSubmiting: Ref<boolean> = ref(false);
 
-	
-watchEffect(async() => {
+watchEffect(async () => {
 	const home: any = await useFetch("/api/home");
 	homeData.value = home?.data;
 	changeWorkExperienceDisplayed(home.data?.value.workExperience[0].id);
@@ -22,14 +21,14 @@ const state = reactive({
 		{
 			link: "https://github.com/Rafhael1",
 			icon: "github",
-			title: ""
+			title: "",
 		},
 		{
 			link: "https://www.linkedin.com/in/rafhael-marques/",
 			icon: "linkedin",
-			title: ""
-		}
-	]
+			title: "",
+		},
+	],
 });
 
 // watch(workExperienceDisplayed, () => console.log(workExperienceDisplayed.value));
@@ -37,14 +36,14 @@ const state = reactive({
 const handleSubmit = async (e: Event) => {
 	const target = e.target as HTMLFormElement;
 	isSubmiting.value = true;
-	
+
 	const body = {
 		subject: (target.elements.namedItem("subject") as HTMLInputElement).value,
-    email: (target.elements.namedItem("email") as HTMLInputElement).value,
-    message: (target.elements.namedItem("message") as HTMLInputElement).value,
-  };
-	const { data } = await useFetch('/api/email', {
-		method: 'POST',
+		email: (target.elements.namedItem("email") as HTMLInputElement).value,
+		message: (target.elements.namedItem("message") as HTMLInputElement).value,
+	};
+	const { data } = await useFetch("/api/email", {
+		method: "POST",
 		body: body,
 	});
 	isSubmiting.value = false;
@@ -52,8 +51,7 @@ const handleSubmit = async (e: Event) => {
 
 const formatWorkExperienceAsHtml = (text: string) => {
 	return text.replace(/\n/g, "<br />");
-}
-
+};
 </script>
 <template>
 	<containerVue
@@ -69,11 +67,11 @@ const formatWorkExperienceAsHtml = (text: string) => {
 					class="text-sm text-section-title-color mobile:text-xs"
 					style="letter-spacing: 7.5px; font-weight: 500"
 				>
-					- MY NAME IS
+					- {{ $t("sectionOneTitle") }}
 				</h3>
 				<div
 					id="summary-subtitle"
-					class="border-r-purple text-bold m-2 animate-typing overflow-hidden whitespace-nowrap border-r-4 text-[44px] leading-none text-primary-text-light mobile:w-64 mobile:text-[32px]"
+					class="border-r-purple text-bold m-2 overflow-hidden whitespace-nowrap border-r-4 text-[44px] leading-none text-primary-text-light mobile:w-64 mobile:text-[32px] animate-typing"
 				>
 					Rafhael
 					<span class="text-violet-600"> Marques. </span>
@@ -85,21 +83,21 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			>
 				{{ homeData.value?.summary?.info }}
 			</div>
-			<div class="mobile:hidden mt-12">
+			<div class="mt-12 mobile:hidden">
 				<NuxtLink
 					v-for="social in state.socials"
 					:key="social.link"
-          :to="social.link"
-          target="_blank"
+					:to="social.link"
+					target="_blank"
 					class="mr-4"
-        >
-          <font-awesome-icon
-            :aria-label="social.link"
-            :alt="social.title"
-            size="lg"
-            :icon="['fab', `${social.icon}`]"
-          />
-        </NuxtLink>				
+				>
+					<font-awesome-icon
+						:aria-label="social.link"
+						:alt="social.title"
+						size="lg"
+						:icon="['fab', `${social.icon}`]"
+					/>
+				</NuxtLink>
 			</div>
 		</span>
 		<div
@@ -190,10 +188,13 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</h1>
 			</div>
 			<span class="mt-10 flex mobile:inline">
-					<div
+				<div
 					class="scrollbar-hide overflow-x-auto mobile:mt-6 mobile:mb-6 mobile:flex desktop:w-[60%]"
 				>
-					<div v-for="(item, index) in homeData.value?.workExperience" :key="index">
+					<div
+						v-for="(item, index) in homeData.value?.workExperience"
+						:key="index"
+					>
 						<buttonVue
 							color="secondary"
 							class="m-2 min-w-[200px] mobile:min-w-[150px]"
@@ -204,21 +205,24 @@ const formatWorkExperienceAsHtml = (text: string) => {
 					</div>
 				</div>
 				<div
-				v-for="(item, index) in homeData.value?.workExperience"
-				v-if="item?.id === workExperienceDisplayed?.value"
-				class="animate-fade-in-right justify-start"
-				:key="index"
+					v-for="(item, index) in homeData.value?.workExperience"
+					v-if="item?.id === workExperienceDisplayed?.value"
+					class="animate-fade-in-right justify-start"
+					:key="index"
 				>
 					<h3 class="text-lg font-medium">{{ item?.info }}</h3>
 					<h5 class="text-sm">{{ item?.location }}</h5>
 					<h6 class="font-semibold">{{ item?.info3 }}</h6>
 					<hr class="my-4 border-b border-gray-50" />
-					<div class="text-sm" v-html="formatWorkExperienceAsHtml(item?.info2)"></div>
+					<div
+						class="text-sm"
+						v-html="formatWorkExperienceAsHtml(item?.info2)"
+					></div>
 				</div>
 			</span>
 		</LazyComponent>
 	</containerVue>
-	<containerVue class="mobile:p-2 p-16">
+	<containerVue class="p-16 mobile:p-2">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -237,10 +241,10 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</h1>
 			</div>
 			<div>
-				<div class="mt-8 grid grid-cols-4 gap-8 ">
+				<div class="mt-8 grid grid-cols-4 gap-8">
 					<div v-for="item in homeData.value?.skills" class="m-auto">
 						<img
-							class="desktop:hover:scale-[1.1] grayscale-[60%] hover:grayscale-0 transition-all"
+							class="grayscale-[60%] transition-all hover:grayscale-0 desktop:hover:scale-[1.1]"
 							width="100"
 							height="100"
 							loading="lazy"
@@ -248,12 +252,12 @@ const formatWorkExperienceAsHtml = (text: string) => {
 							:src="item?.image"
 							:alt="item?.info"
 						/>
-					</div>				
+					</div>
 				</div>
 			</div>
 		</LazyComponent>
 	</containerVue>
-	<containerVue class="mobile:p-8 p-16">
+	<containerVue class="p-16 mobile:p-8">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -280,7 +284,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</div>
 		</LazyComponent>
 	</containerVue>
-	<containerVue class="mobile:p-6 p-16">
+	<containerVue class="p-16 mobile:p-6">
 		<LazyComponent>
 			<div class="w-22">
 				<h3
@@ -318,7 +322,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</ol>
 		</LazyComponent>
 	</containerVue>
-	<containerVue class="mobile:p-2 p-16">
+	<containerVue class="p-16 mobile:p-2">
 		<LazyComponent>
 			<div class="w-22">
 				<h1
@@ -378,11 +382,15 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								required
 							/>
 						</div>
-						<div>		
+						<div>
 							<!-- <VueRecaptcha version="2" :sitekey="process.env.RECAPTCHA_V2_SITEKEY"></VueRecaptcha>	 -->
 							<buttonVue class="w-3/4 mobile:w-full">
-								{{ isSubmiting ? 'Sending...' : 'Send' }}
-								<font-awesome-icon  size="md" :icon="['fas', 'fa-paper-plane']" :shake="isSubmiting" />
+								{{ isSubmiting ? "Sending..." : "Send" }}
+								<font-awesome-icon
+									size="md"
+									:icon="['fas', 'fa-paper-plane']"
+									:shake="isSubmiting"
+								/>
 							</buttonVue>
 						</div>
 					</form>
