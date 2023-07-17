@@ -47,6 +47,8 @@ const handleSubmit = async (e: Event) => {
 		body: body,
 	});
 	isSubmiting.value = false;
+	// reset form
+	target.reset();
 };
 
 const formatWorkExperienceAsHtml = (text: string) => {

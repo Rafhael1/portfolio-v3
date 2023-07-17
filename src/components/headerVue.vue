@@ -17,15 +17,17 @@ import { saveAs } from 'file-saver';
 // 	isMenuOpen.value = !isMenuOpen.value;
 // };
 
+const isDownloadingResume = ref(false);
+
 const downloadResume = async() => {
-	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/frontend_rafhael_marques_cv.pdf?t=2023-06-08T22%3A49%3A01.448Z")
+	isDownloadingResume.value = true;
+	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/cv_rafhael_marques_swe.pdf")
 
 	const blob: any = resume?.data.value
 	const url = window.URL.createObjectURL(blob);
 
-	console.log('saving file...')
-	saveAs(url, "frontend_rafhael_marques_cv.pdf");
-
+	saveAs(url, "swe_rafhael_marques_cv.pdf");
+	isDownloadingResume.value = false;
 };
 
 </script>
@@ -107,6 +109,7 @@ const downloadResume = async() => {
 					Resume
 					<font-awesome-icon
 					class="ml-1"
+					:shake="isDownloadingResume"
 					:icon="['fas', 'fa-download']"
 					/>
 				</button>
