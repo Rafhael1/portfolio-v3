@@ -61,7 +61,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 		class="relative mb-6 flex w-full justify-between mobile:m-auto mobile:flex-none"
 	>
 		<span
-			class="relative left-10 mt-28 mobile:left-0 mobile:mt-8 desktop:min-w-[616px]"
+			class="relative left-0 mt-28 mobile:left-0 mobile:mt-8 desktop:min-w-[616px]"
 		>
 			<div class="w-[23rem] mobile:w-[22rem]">
 				<h3
@@ -104,10 +104,12 @@ const formatWorkExperienceAsHtml = (text: string) => {
 		</span>
 		<div
 			id="summary-image"
-			class="ml-10 mt-16 w-full min-w-[340px] mobile:hidden tablet:hidden"
+			class="ml-0 mt-16 w-full min-w-[340px] mobile:hidden tablet:hidden"
 		>
 			<img
 				class="m-auto w-[400px]"
+				width="400"
+				height="400"
 				loading="eagle"
 				src="/img/programmer.svg"
 				alt="programmer"
