@@ -11,6 +11,7 @@ export interface DashboardForm {
 		icon: string;
 	}[];
 	workExperience?: {
+		id?: number;
 		title: string;
 		company: string;
 		location: string;

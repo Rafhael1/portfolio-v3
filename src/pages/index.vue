@@ -31,20 +31,19 @@ const state = reactive({
 	],
 });
 
-// watch(workExperienceDisplayed, () => console.log(workExperienceDisplayed.value));
+const formBody = ref({
+	subject: "",
+	email: "",
+	message: "",
+});
 
 const handleSubmit = async (e: Event) => {
 	const target = e.target as HTMLFormElement;
 	isSubmiting.value = true;
 
-	const body = {
-		subject: (target.elements.namedItem("subject") as HTMLInputElement).value,
-		email: (target.elements.namedItem("email") as HTMLInputElement).value,
-		message: (target.elements.namedItem("message") as HTMLInputElement).value,
-	};
 	const { data } = await useFetch("/api/email", {
 		method: "POST",
-		body: body,
+		body: formBody,
 	});
 	isSubmiting.value = false;
 	// reset form
@@ -104,10 +103,10 @@ const formatWorkExperienceAsHtml = (text: string) => {
 		</span>
 		<div
 			id="summary-image"
-			class="ml-0 mt-16 w-full min-w-[340px] mobile:hidden tablet:hidden"
+			class="ml-0 mt-16 w-full min-w-[340px] mobile:hidden"
 		>
 			<img
-				class="m-auto w-[400px]"
+				class="m-auto w-[400px] tablet:w-[300px]"
 				width="400"
 				height="400"
 				loading="eagle"
@@ -193,7 +192,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</div>
 			<span class="mt-10 flex mobile:inline">
 				<div
-					class="scrollbar-hide overflow-x-auto mobile:mt-6 mobile:mb-6 mobile:flex desktop:w-[60%]"
+					class="scrollbar-hide overflow-x-auto mobile:mt-6 mobile:mb-6 mobile:flex desktop:w-[60%] tablet:w-[80%]"
 				>
 					<div
 						v-for="(item, index) in homeData.value?.workExperience"
@@ -347,12 +346,12 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								>Subject *</label
 							>
 							<input
-								v-model="subject"
 								id="subject"
 								type="text"
 								class="text-md block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-violet-400 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 mobile:w-full"
 								placeholder="Opportunity"
 								required
+								v-model="formBody.subject"
 							/>
 						</div>
 						<div class="mb-2">
@@ -362,7 +361,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								>Your Email *</label
 							>
 							<input
-								v-model="email"
+								v-model="formBody.email"
 								id="email"
 								type="text"
 								class="text-md block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-violet-400 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 mobile:w-full"
@@ -377,7 +376,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								>Message *</label
 							>
 							<textarea
-								v-model="message"
+								v-model="formBody.message"
 								id="message"
 								rows="6"
 								type="text"

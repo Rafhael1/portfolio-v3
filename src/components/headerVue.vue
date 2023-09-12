@@ -24,7 +24,7 @@ const downloadResume = async() => {
 	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/cv_rafhael_marques_swe.pdf")
 
 	const blob: any = resume?.data.value
-	const url = window.URL.createObjectURL(blob);
+	const url = window?.URL.createObjectURL(blob);
 
 	saveAs(url, "swe_rafhael_marques_cv.pdf");
 	isDownloadingResume.value = false;
