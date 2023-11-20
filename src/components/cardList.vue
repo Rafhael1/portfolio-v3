@@ -53,7 +53,7 @@ const handleMouseUp = () => {
 	isDragging.value = false;
 };
 
-const disabledChipClass = ref("mb-auto mt-1 flex gap-1 rounded border border-gray-300 pr-2 pl-2 bg-gray-100 text-gray-400 cursor-not-allowed");
+const disabledChipClass = ref("mb-auto mt-1 flex gap-1 rounded border border-gray-300 pr-2 pl-2 bg-gray-100 text-gray-400 cursor-not-allowed disabled");
 const enabledChipClass = ref("hover:shadow-md mb-auto mt-1 flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600 ");
 </script>
 <template>
@@ -100,18 +100,18 @@ const enabledChipClass = ref("hover:shadow-md mb-auto mt-1 flex cursor-pointer g
 									{{ item?.info }}
                 </h3>
                 <span class="flex gap-2 mb-2">
-                  <a
-                    :aria-disabled="!!item.url"
-                    :class="!item.url ? disabledChipClass : enabledChipClass"
-                    :href="item.url ?? '#'"
-                    :target="!item.url ? '_self' : '_blank'"
-                  >
-                    Site
-                    <font-awesome-icon
-                      class="mt-auto mb-auto"
-                      :icon="['fas', 'link']"
-                    />
-                  </a>
+									<a
+										:aria-disabled="!item.url"
+										:class="!item.url ? disabledChipClass : enabledChipClass"
+										:href="item.url ? item.url : null"
+										target="'_blank'"
+									>
+										Site
+										<font-awesome-icon
+											class="mt-auto mb-auto"
+											:icon="['fas', 'link']"
+										/>
+									</a>
                   <a
                     class="hover:shadow-md mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
                     :href="item?.info3"
