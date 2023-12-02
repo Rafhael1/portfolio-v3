@@ -325,7 +325,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 			</ol>
 		</LazyComponent>
 	</containerVue>
-	<containerVue class="p-16 mobile:p-2">
+	<!-- <containerVue class="p-16 mobile:p-2">
 		<LazyComponent>
 			<div class="w-22">
 				<h1
@@ -386,7 +386,6 @@ const formatWorkExperienceAsHtml = (text: string) => {
 							/>
 						</div>
 						<div>
-							<!-- <VueRecaptcha version="2" :sitekey="process.env.RECAPTCHA_V2_SITEKEY"></VueRecaptcha>	 -->
 							<buttonVue class="w-3/4 mobile:w-full">
 								{{ isSubmiting ? "Sending..." : "Send" }}
 								<font-awesome-icon
@@ -408,7 +407,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</containerVue>
+	</containerVue> -->
 </template>
 <style scoped>
 .scrollbar-hide::-webkit-scrollbar {
