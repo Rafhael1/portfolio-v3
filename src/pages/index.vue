@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, Ref } from "vue";
+import { ref } from "vue";
 import LazyComponent from "~/components/LazyComponent.vue";
 
 const homeData: Ref<any> = ref({});
@@ -109,7 +109,6 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				class="m-auto w-[400px] tablet:w-[300px]"
 				width="400"
 				height="400"
-				loading="eagle"
 				src="/img/programmer.svg"
 				alt="programmer"
 			/>
@@ -207,21 +206,23 @@ const formatWorkExperienceAsHtml = (text: string) => {
 						</buttonVue>
 					</div>
 				</div>
-				<div
-					v-for="(item, index) in homeData.value?.workExperience"
-					v-if="item?.id === workExperienceDisplayed?.value"
-					class="animate-fade-in-right justify-start"
-					:key="index"
+				<template 
+				v-for="item in homeData.value?.workExperience"
 				>
+				<div
+					v-if="item?.id === workExperienceDisplayed"									
+					class="animate-fade-in-right justify-start"
+					>
 					<h3 class="text-lg font-medium">{{ item?.info }}</h3>
 					<h5 class="text-sm">{{ item?.location }}</h5>
 					<h6 class="font-semibold">{{ item?.info3 }}</h6>
 					<hr class="my-4 border-b border-gray-50" />
 					<div
-						class="text-sm"
-						v-html="formatWorkExperienceAsHtml(item?.info2)"
+					class="text-sm"
+					v-html="formatWorkExperienceAsHtml(item?.info2)"
 					></div>
 				</div>
+				</template>
 			</span>
 		</LazyComponent>
 	</containerVue>
