@@ -24,7 +24,7 @@ const state = reactive({
 			title: "",
 		},
 		{
-			link: "https://www.linkedin.com/in/rafhael-marques/",
+			link: "https://www.linkedin.com/in/rafhael-marques-de-lima-freitas/",
 			icon: "linkedin",
 			title: "",
 		},
@@ -75,7 +75,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 					class="border-r-purple text-bold m-2 overflow-hidden whitespace-nowrap border-r-4 text-[44px] leading-none text-primary-text-light mobile:w-64 mobile:text-[32px] animate-typing"
 				>
 					Rafhael
-					<span class="text-violet-600"> Marques. </span>
+					<span class="text-violet-600"> Freitas. </span>
 				</div>
 			</div>
 			<div

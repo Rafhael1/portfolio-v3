@@ -18,7 +18,7 @@ export default defineNuxtConfig({
 								srcDir: 'src/',
 								app: {		
 																head: {
-																								title: 'Rafhael Marques',
+																								title: 'Rafhael M.L Freitas',
 																								htmlAttrs: {
 																																lang: 'en',
 

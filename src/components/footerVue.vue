@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { FooterState } from "../types/footer.types";
 
 const getYear = () => {
 	return new Date().getFullYear();
 };
 
-const state = reactive<FooterState>({
+const state = reactive({
 	socials: [
 		{
 			link: "https://github.com/Rafhael1",
@@ -47,7 +46,7 @@ const state = reactive<FooterState>({
         href="https://rafhaelmarques.me/"
         class="hover:underline"
       > 
-        - Rafhael Marques
+        - Rafhael M L Freitas
       </a>
     </p>
   </footer>
