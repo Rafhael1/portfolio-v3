@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { saveAs } from 'file-saver';
+import { saveAs } from "file-saver";
 // import { useThemeStore } from "../../stores/theme";
 // import Logo from "~/public/img/logo.svg?url";
 
@@ -21,9 +21,9 @@ const isDownloadingResume = ref(false);
 
 const downloadResume = async() => {
 	isDownloadingResume.value = true;
-	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/cv_rafhael_marques_swe.pdf")
+	const resume = await useFetch("https://xzjfmgkeufgbswhwqmrn.supabase.co/storage/v1/object/public/portfolio-images/resume/cv_rafhael_marques_swe.pdf");
 
-	const blob: any = resume?.data.value
+	const blob: any = resume?.data.value;
 	const url = window?.URL.createObjectURL(blob);
 
 	saveAs(url, "swe_rafhael_marques_cv.pdf");
@@ -74,11 +74,11 @@ const downloadResume = async() => {
         <img
           width="35"
           height="35"
-					src="/img/logo.svg"
+          src="/img/logo.svg"
           class="mr-3"
-					loading="eagle"
-					alt="Logo"
-        />
+          loading="eagle"
+          alt="Logo"
+        >
         <span
           class="self-center text-xl font-semibold whitespace-nowrap text-primary-text-light"
         >&lt;Rafhael /></span>
@@ -101,18 +101,18 @@ const downloadResume = async() => {
 						alt="Theme Switch" />
 
 				</button> -->
-				<button 
-				type="button" 
-				class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-				@click="downloadResume"
-				>
-					Resume
-					<font-awesome-icon
-					class="ml-1"
-					:shake="isDownloadingResume"
-					:icon="['fas', 'fa-download']"
-					/>
-				</button>
+        <button 
+          type="button" 
+          class="primary-text-light dark:primary-text-dark bg-gray-50 border border-gray-100 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-violet-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 ml-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+          @click="downloadResume"
+        >
+          Resume
+          <font-awesome-icon
+            class="ml-1"
+            :shake="isDownloadingResume"
+            :icon="['fas', 'fa-download']"
+          />
+        </button>
       </div>
       <!-- <div
         id="mobile-menu-2"

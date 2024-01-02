@@ -1,22 +1,22 @@
 export const iconsList = [
 	{
-		label: 'Facebook',
-		value: 'facebook'
+		label: "Facebook",
+		value: "facebook"
 	},
 	{
-		label: 'Twitter',
-		value: 'twitter'
+		label: "Twitter",
+		value: "twitter"
 	},
 	{
-		label: 'Instagram',
-		value: 'instagram'
+		label: "Instagram",
+		value: "instagram"
 	},
 	{
-		label: 'LinkedIn',
-		value: 'linkedin'
+		label: "LinkedIn",
+		value: "linkedin"
 	},
 	{
-		label: 'Github',
-		value: 'github'
+		label: "Github",
+		value: "github"
 	}
 ];

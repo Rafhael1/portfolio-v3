@@ -4,19 +4,19 @@
 
 const headerLinks = [
 	{
-		title: 'Home',
-		url: '/',
-		target: '_self',
+		title: "Home",
+		url: "/",
+		target: "_self",
 	},
 	{
-		title: 'About',
-		url: '/about',
-		target: '_self',
+		title: "About",
+		url: "/about",
+		target: "_self",
 	},
 	{
-		title: 'Contact',
-		url: '/contact',
-		target: '_self',
+		title: "Contact",
+		url: "/contact",
+		target: "_self",
 	},
 ];
 

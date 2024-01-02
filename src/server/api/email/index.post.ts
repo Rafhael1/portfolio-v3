@@ -1,4 +1,4 @@
-import nodeMailer from 'nodemailer';
+import nodeMailer from "nodemailer";
 
 interface Body {
 	email: string;
@@ -9,14 +9,14 @@ interface Body {
 export default defineEventHandler(async(event) => {
 	const body: Body = await readBody(event);
 	if (!body.email || !body.subject || !body.message) {
-		throw new Error('Missing required fields');
+		throw new Error("Missing required fields");
 	}
 	
 	const userEmail = process.env.GMAIL_NODEMAILER_USER;
 	const userPassword = process.env.GMAIL_NODEMAILER_PASS;
 
 	const transporter = nodeMailer.createTransport({
-		service: 'smtp.mailgun.org',
+		service: "smtp.mailgun.org",
 		port: 587,
 		auth: {
 			user: userEmail,
@@ -32,12 +32,12 @@ export default defineEventHandler(async(event) => {
 	}, (err: any, info: any) => {
 		if (err) {
 			console.log(err);
-			throw new Error('Message NOT sent');
+			throw new Error("Message NOT sent");
 		} else {
 			console.log(info);
-			return 'Message sent successfully'
+			return "Message sent successfully";
 		}
 	});
 
-	return 'Message sent';
+	return "Message sent";
 });

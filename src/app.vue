@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useThemeStore } from './stores/theme';
+import { useThemeStore } from "./stores/theme";
 
 const themeStore = useThemeStore();
-const theme = ref<'dark' | 'light'>();
+const theme = ref<"dark" | "light">();
 
 onMounted(() => {
 	theme.value = themeStore.getTheme();

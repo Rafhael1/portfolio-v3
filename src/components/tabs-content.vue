@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{ id: string }>();
 
-const activeTab = inject('activeTab');
+const activeTab = inject("activeTab");
 
 </script>
 <template>

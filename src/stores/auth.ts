@@ -1,11 +1,11 @@
-import { defineStore } from 'pinia';
+import { defineStore } from "pinia";
 
 interface IState {
 	isLoading: boolean;
 	auth?: any;
 }
 
-export const useAuthStore = defineStore('auth', {	
+export const useAuthStore = defineStore("auth", {	
 	state: (): IState  => ({
 		isLoading: false,
 		auth: null
@@ -15,8 +15,8 @@ export const useAuthStore = defineStore('auth', {
 			const router = useRouter();
 			
 			this.isLoading = true;
-			const login: any = await useFetch('/api/auth/login', {
-				method: 'POST',
+			const login: any = await useFetch("/api/auth/login", {
+				method: "POST",
 				body: form
 			});
 
@@ -24,10 +24,10 @@ export const useAuthStore = defineStore('auth', {
 			const accessToken: string = login.data.value?.session?.access_token;
 
 			if (accessToken) {
-				localStorage.setItem('accessToken', accessToken);
+				localStorage.setItem("accessToken", accessToken);
 				// redirect to home 
 				this.isLoading = false;
-				router.push('/dashboard');
+				router.push("/dashboard");
 				return true;				
 			}
 			
@@ -36,23 +36,23 @@ export const useAuthStore = defineStore('auth', {
 			
 		},
 		async isAuth() {
-				const accessToken = localStorage.getItem('accessToken');
-				if (accessToken) {
-					const isAuth: any = await useFetch('/api/auth/is-auth', {
-						method: 'POST',
-						body: {
-							accessToken
-						}
-					});
-					if(isAuth.data.value !== null){
-						if (isAuth.data.value) {
-							return navigateTo('/dashboard');
-						}
-						return navigateTo('/login');
+			const accessToken = localStorage.getItem("accessToken");
+			if (accessToken) {
+				const isAuth: any = await useFetch("/api/auth/is-auth", {
+					method: "POST",
+					body: {
+						accessToken
 					}
-				} else {
-					return navigateTo('/login');
+				});
+				if(isAuth.data.value !== null){
+					if (isAuth.data.value) {
+						return navigateTo("/dashboard");
+					}
+					return navigateTo("/login");
 				}
+			} else {
+				return navigateTo("/login");
+			}
 		}
 	}
 });

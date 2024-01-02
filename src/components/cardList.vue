@@ -86,8 +86,8 @@ const enabledChipClass = ref("hover:shadow-md mb-auto mt-1 flex cursor-pointer g
           <div class="flex flex-col items-center justify-center">
             <img
               draggable="false"
-							width="300"
-							height="180"
+              width="300"
+              height="180"
               class="h-[180px] w-full rounded-t object-cover p-0  grayscale-[70%] hover:grayscale-0 transition-all"
               :src="item.image"
               alt="development-svg"
@@ -97,21 +97,21 @@ const enabledChipClass = ref("hover:shadow-md mb-auto mt-1 flex cursor-pointer g
                 <h3
                   class="justify-start text-lg font-medium text-primary-text-light"
                 >
-									{{ item?.info }}
+                  {{ item?.info }}
                 </h3>
                 <span class="flex gap-2 mb-2">
-									<a
-										:aria-disabled="!item.url"
-										:class="!item.url ? disabledChipClass : enabledChipClass"
-										:href="item.url ? item.url : null"
-										target="'_blank'"
-									>
-										Site
-										<font-awesome-icon
-											class="mt-auto mb-auto"
-											:icon="['fas', 'link']"
-										/>
-									</a>
+                  <a
+                    :aria-disabled="!item.url"
+                    :class="!item.url ? disabledChipClass : enabledChipClass"
+                    :href="item.url ? item.url : null"
+                    target="'_blank'"
+                  >
+                    Site
+                    <font-awesome-icon
+                      class="mt-auto mb-auto"
+                      :icon="['fas', 'link']"
+                    />
+                  </a>
                   <a
                     class="hover:shadow-md mb-auto mt-auto flex cursor-pointer gap-1 rounded border border-violet-500 bg-violet-100 pr-2 pl-2 text-violet-600"
                     :href="item?.info3"

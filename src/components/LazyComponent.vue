@@ -28,8 +28,8 @@ onMounted(() => {
 </script>
 <template>
   <div
-    ref="animatedDiv"
-    class="opacity-0"
+		ref="animatedDiv"
+		class="opacity-0"
   >
     <slot />
   </div>

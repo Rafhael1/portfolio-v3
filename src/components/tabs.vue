@@ -2,11 +2,11 @@
 const slots = useSlots();
 
 const tabs = ref<any>([]);
-const activeTab = ref(tabs?.value[0]?.id || '');
+const activeTab = ref(tabs?.value[0]?.id || "");
 
 // When a tab is active, add the active class
-const activeClass = 'text-purple-600 hover:text-purple-700 bg-purple-100';
-const inactiveClass = 'text-gray-600 hover:text-gray-700 bg-gray-100';
+const activeClass = "text-purple-600 hover:text-purple-700 bg-purple-100";
+const inactiveClass = "text-gray-600 hover:text-gray-700 bg-gray-100";
 
 // update active tab
 const updateActiveTab = (e: Event) => {
@@ -15,7 +15,7 @@ const updateActiveTab = (e: Event) => {
 	activeTab.value = tabId;
 };
 
-provide('activeTab', activeTab);
+provide("activeTab", activeTab);
 
 onMounted(() => {
 	// About the '!' in slots.default!()
