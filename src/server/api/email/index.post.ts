@@ -1,6 +1,7 @@
 import nodeMailer from "nodemailer";
 
 interface Body {
+	name: string;
 	email: string;
 	subject: string;
 	message: string;
@@ -24,20 +25,27 @@ export default defineEventHandler(async(event) => {
 		}
 	});
 
-	await transporter.sendMail({
+	const sendByJavaApi = async () => {
+		try {
+			await $fetch(`${process.env.PORTFOLIO_JAVA_API_URL}/contact/send-email`, {
+				method: "POST",
+				body: JSON.stringify({
+					name: body.name,
+					email: body.email,
+					subject: body.subject,
+					message: body.message + "\n\n" + "Sent Through Java",
+				})
+			})
+		} catch (err) {
+			console.error(err);
+		}
+	}
+
+	transporter.sendMail({
 		from: userEmail,
 		to: process.env.RECIPIENT_EMAIL,
 		subject: `${body.email} - ${body.subject}`,
-		text: body.message,
-	}, (err: any, info: any) => {
-		if (err) {
-			console.log(err);
-			throw new Error("Message NOT sent");
-		} else {
-			console.log(info);
-			return "Message sent successfully";
-		}
+		text: body.message + "\n\n" + "Sent Through Node",
 	});
-
-	return "Message sent";
+	await sendByJavaApi();
 });

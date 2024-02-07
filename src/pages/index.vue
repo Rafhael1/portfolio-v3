@@ -3,23 +3,6 @@ import { ref } from "vue";
 import LazyComponent from "~/components/LazyComponent.vue";
 import { useHomeDataStore } from "../stores/homeData";
 
-const workExperienceDisplayed: Ref<any> = ref(0);
-
-const homeDataStore = useHomeDataStore();
-
-watchEffect(async () => {
-	await homeDataStore.getHomeData();
-	const homeData = homeDataStore.homeData;
-
-	if(homeData){
-		changeWorkExperienceDisplayed(homeData.workExperience[0]?.id);
-	}
-});
-
-const changeWorkExperienceDisplayed = (companyId: number) => {
-	workExperienceDisplayed.value = companyId;
-};
-
 const socials = [
 	{
 		link: "https://github.com/Rafhael1",
@@ -33,6 +16,42 @@ const socials = [
 	},
 ];
 
+const homeDataStore = useHomeDataStore();
+const workExperienceDisplayed: Ref<any> = ref(0);
+const form = ref({
+	subject: "",
+	name: "",
+	email: "",
+	message: "",
+});
+const isSubmiting = ref(false);
+
+
+watchEffect(async () => {
+	await homeDataStore.getHomeData();
+	const homeData = homeDataStore.homeData;
+	if(homeData){
+		changeWorkExperienceDisplayed(homeData.workExperience[0]?.id);
+	}
+});
+
+const handleSubmit = async () => {
+	isSubmiting.value = true;
+	await useFetch("/api/email", {
+		method: "POST",
+		body: form.value,
+	});
+	isSubmiting.value = false;
+	form.value = {
+		subject: "",
+		name: "",
+		email: "",
+		message: "",
+	};
+};
+const changeWorkExperienceDisplayed = (companyId: number) => {
+	workExperienceDisplayed.value = companyId;
+};
 const formatWorkExperienceAsHtml = (text: string) => {
 	return text?.replace(/\n/g, "<br />");
 };
@@ -320,7 +339,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
       </ol>
     </LazyComponent>
   </containerVue>
-  <!-- <containerVue class="p-16 mobile:p-2">
+  <containerVue class="p-16 mobile:p-2">
 		<LazyComponent>
 			<div class="w-22">
 				<h1
@@ -346,7 +365,22 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								class="text-md block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-violet-400 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 mobile:w-full"
 								placeholder="Opportunity"
 								required
-								v-model="formBody.subject"
+								v-model="form.subject"
+							/>
+						</div>
+						<div class="mb-2">
+							<label
+								for="subject"
+								class="text-md mb-1 block font-medium text-gray-900 dark:text-white"
+								>Your Name *</label
+							>
+							<input
+								id="subject"
+								type="text"
+								class="text-md block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-violet-400 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 mobile:w-full"
+								placeholder="Opportunity"
+								required
+								v-model="form.name"
 							/>
 						</div>
 						<div class="mb-2">
@@ -356,7 +390,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								>Your Email *</label
 							>
 							<input
-								v-model="formBody.email"
+								v-model="form.email"
 								id="email"
 								type="text"
 								class="text-md block w-3/4 rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-violet-400 focus:ring-violet-400 dark:border-gray-600 dark:bg-gray-700 dark:placeholder-gray-400 mobile:w-full"
@@ -371,7 +405,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 								>Message *</label
 							>
 							<textarea
-								v-model="formBody.message"
+								v-model="form.message"
 								id="message"
 								rows="6"
 								type="text"
@@ -402,7 +436,7 @@ const formatWorkExperienceAsHtml = (text: string) => {
 				</div>
 			</div>
 		</LazyComponent>
-	</containerVue> -->
+	</containerVue>
 </template>
 <style scoped>
 .scrollbar-hide::-webkit-scrollbar {
